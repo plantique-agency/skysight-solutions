@@ -3,10 +3,53 @@ import { Send, CheckCircle2 } from "lucide-react";
 
 export function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setSubmitted(true);
+    setError(null);
+    setSubmitting(true);
+
+    try {
+      const form = e.currentTarget;
+      const data = new FormData(form);
+
+      const payload = {
+        name: String(data.get("name") ?? ""),
+        email: String(data.get("email") ?? ""),
+        phone: String(data.get("phone") ?? ""),
+        company: String(data.get("company") ?? ""),
+        service: String(data.get("type") ?? ""),
+        message: String(data.get("message") ?? ""),
+      };
+
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        let message = "Failed to send message";
+        try {
+          const json = await response.json();
+          if (json?.error) message = String(json.error);
+        } catch {
+          // ignore
+        }
+        throw new Error(message);
+      }
+
+      setSubmitted(true);
+      form.reset();
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to send message");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -26,6 +69,11 @@ export function ContactForm() {
       onSubmit={onSubmit}
       className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-card grid gap-4"
     >
+      {error ? (
+        <div className="rounded-md border border-destructive/30 bg-destructive/10 px-4 py-3 text-sm text-destructive">
+          {error}
+        </div>
+      ) : null}
       <div className="grid md:grid-cols-2 gap-4">
         <Field label="Full name" name="name" required />
         <Field label="Company" name="company" required />
@@ -52,9 +100,10 @@ export function ContactForm() {
       </div>
       <button
         type="submit"
+        disabled={submitting}
         className="mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition-colors"
       >
-        Submit request <Send className="h-4 w-4" />
+        {submitting ? "Sending…" : "Submit request"} <Send className="h-4 w-4" />
       </button>
     </form>
   );
