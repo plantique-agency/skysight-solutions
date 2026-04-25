@@ -6,9 +6,9 @@ import { ContactForm } from "../components/ContactForm";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact — Request an inspection | AeroInspect" },
+      { title: "Contact — Request an inspection | Utilisight" },
       { name: "description", content: "Request a free site assessment. Our team responds within 24 hours. Nationwide drone inspection operations." },
-      { property: "og:title", content: "Contact AeroInspect" },
+      { property: "og:title", content: "Contact Utilisight" },
       { property: "og:description", content: "Let's talk about your project — request a free inspection assessment." },
     ],
   }),
@@ -26,9 +26,9 @@ function ContactPage() {
       <section className="py-16 md:py-24">
         <div className="container-narrow grid gap-10 lg:grid-cols-[1fr_1.4fr]">
           <div className="space-y-6">
-            <InfoRow icon={Phone} title="Phone / WhatsApp" lines={[<a key="t" href="tel:+15555550123" className="hover:text-primary">+1 (555) 555-0123</a>]} />
-            <InfoRow icon={Mail} title="Email" lines={[<a key="m" href="mailto:hello@aeroinspect.co" className="hover:text-primary">hello@aeroinspect.co</a>]} />
-            <InfoRow icon={MapPin} title="Operations" lines={["Nationwide deployments", "HQ — Energy District"]} />
+            <InfoRow icon={Phone} title="Phone / WhatsApp" lines={[<a key="t" href="tel:+14379858229" className="hover:text-primary">+1 437-985-8229</a>]} />
+            <InfoRow icon={Mail} title="Email" lines={[<a key="m" href="mailto:ralvarez@utilisight.ca" className="hover:text-primary">ralvarez@utilisight.ca</a>]} />
+            <InfoRow icon={MapPin} title="Location" lines={["North York, Ontario"]} />
             <InfoRow icon={Clock} title="Response time" lines={["Within 24 hours", "Mon–Fri, 8am–6pm"]} />
 
             <div className="mt-8 rounded-xl border border-border bg-surface p-5">

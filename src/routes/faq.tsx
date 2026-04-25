@@ -6,9 +6,9 @@ import { SplitCTA } from "../components/SplitCTA";
 export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
-      { title: "FAQ — Drone inspection questions | AeroInspect" },
+      { title: "FAQ — Drone inspection questions | Utilisight" },
       { name: "description", content: "Permits, weather, capacity, regulator approval — answers to the most common questions about drone inspections." },
-      { property: "og:title", content: "AeroInspect FAQ" },
+      { property: "og:title", content: "Utilisight FAQ" },
       { property: "og:description", content: "Common questions about drone inspections for energy infrastructure." },
     ],
   }),

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, X, Plane } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 const NAV = [
   { to: "/", label: "Home" },
@@ -27,18 +27,13 @@ export function Header() {
     <header
       className={`sticky top-0 z-50 w-full transition-all ${
         scrolled
-          ? "bg-background/90 backdrop-blur-md border-b border-border shadow-sm"
-          : "bg-background/60 backdrop-blur-sm"
+          ? "bg-white border-b border-border shadow-sm"
+          : "bg-white border-b border-border"
       }`}
     >
-      <div className="container-narrow flex h-16 items-center justify-between gap-4">
-        <Link to="/" className="flex items-center gap-2 group" aria-label="AeroInspect home">
-          <span className="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground shadow-sm group-hover:bg-primary-hover transition-colors">
-            <Plane className="h-5 w-5 -rotate-45" />
-          </span>
-          <span className="font-bold text-lg tracking-tight">
-            Aero<span className="text-primary">Inspect</span>
-          </span>
+      <div className="container-narrow flex h-20 items-center justify-between gap-4">
+        <Link to="/" className="flex items-center gap-2 group" aria-label="Utilisight home">
+          <img src="/logo.jpg.jpeg" alt="Utilisight logo" className="h-16 md:h-[72px] w-auto" />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-1" aria-label="Primary">
@@ -47,7 +42,7 @@ export function Header() {
               key={item.to}
               to={item.to}
               activeOptions={{ exact: item.to === "/" }}
-              className="px-3 py-2 text-sm font-medium text-muted-foreground hover:text-primary transition-colors rounded-md data-[status=active]:text-primary data-[status=active]:bg-accent"
+              className="px-4 py-2.5 text-base font-medium text-muted-foreground hover:text-primary transition-colors rounded-md data-[status=active]:text-primary data-[status=active]:bg-accent"
             >
               {item.label}
             </Link>
@@ -57,7 +52,7 @@ export function Header() {
         <div className="hidden lg:flex">
           <Link
             to="/contact"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground shadow-sm hover:bg-primary-hover transition-colors"
+            className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-base font-semibold text-primary-foreground shadow-sm hover:bg-primary-hover transition-colors"
           >
             Request Inspection
           </Link>
@@ -65,25 +60,25 @@ export function Header() {
 
         <button
           type="button"
-          className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-md text-foreground hover:bg-accent"
+          className="lg:hidden inline-flex h-12 w-12 items-center justify-center rounded-md text-foreground hover:bg-accent"
           onClick={() => setOpen((v) => !v)}
           aria-label="Toggle menu"
           aria-expanded={open}
         >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </button>
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border bg-background">
-          <nav className="container-narrow flex flex-col py-3" aria-label="Mobile">
+        <div className="lg:hidden border-t border-border bg-white">
+          <nav className="container-narrow flex flex-col py-4" aria-label="Mobile">
             {NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
                 activeOptions={{ exact: item.to === "/" }}
                 onClick={() => setOpen(false)}
-                className="px-3 py-3 text-base font-medium text-foreground hover:bg-accent rounded-md data-[status=active]:text-primary"
+                className="px-3 py-3.5 text-lg font-medium text-foreground hover:bg-accent rounded-md data-[status=active]:text-primary"
               >
                 {item.label}
               </Link>
@@ -91,7 +86,7 @@ export function Header() {
             <Link
               to="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 inline-flex items-center justify-center rounded-md bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground"
+              className="mt-3 inline-flex items-center justify-center rounded-md bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground"
             >
               Request Inspection
             </Link>

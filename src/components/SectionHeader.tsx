@@ -5,9 +5,20 @@ interface Props {
   title: string;
   description?: string;
   align?: "left" | "center";
+  eyebrowClassName?: string;
+  titleClassName?: string;
+  descriptionClassName?: string;
 }
 
-export function SectionHeader({ eyebrow, title, description, align = "center" }: Props) {
+export function SectionHeader({
+  eyebrow,
+  title,
+  description,
+  align = "center",
+  eyebrowClassName,
+  titleClassName,
+  descriptionClassName,
+}: Props) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -17,15 +28,27 @@ export function SectionHeader({ eyebrow, title, description, align = "center" }:
       className={`max-w-3xl ${align === "center" ? "mx-auto text-center" : ""}`}
     >
       {eyebrow && (
-        <span className="inline-block text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+        <span
+          className={`inline-block text-xs font-semibold uppercase tracking-[0.18em] ${
+            eyebrowClassName ?? "text-primary"
+          }`}
+        >
           {eyebrow}
         </span>
       )}
-      <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-foreground text-balance">
+      <h2
+        className={`mt-3 text-3xl md:text-4xl lg:text-5xl font-bold text-balance ${
+          titleClassName ?? "text-foreground"
+        }`}
+      >
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-base md:text-lg text-muted-foreground text-balance">
+        <p
+          className={`mt-4 text-base md:text-lg text-balance ${
+            descriptionClassName ?? "text-muted-foreground"
+          }`}
+        >
           {description}
         </p>
       )}

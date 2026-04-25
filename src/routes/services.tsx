@@ -1,33 +1,61 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { Zap, SunMedium, CheckCircle2, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Zap,
+  SunMedium,
+  Home,
+  Thermometer,
+  FileText,
+  CheckCircle2,
+  ArrowRight,
+  Clock,
+  DollarSign,
+  ShieldAlert,
+  FileX2,
+} from "lucide-react";
 import { SectionHeader } from "../components/SectionHeader";
 import { SplitCTA } from "../components/SplitCTA";
 
 export const Route = createFileRoute("/services")({
   head: () => ({
     meta: [
-      { title: "Services — Drone inspections for power lines & solar | AeroInspect" },
+      { title: "Services — Drone inspections for power lines & solar | Utilisight" },
       { name: "description", content: "Specialized aerial inspections for electrical distribution lines and photovoltaic solar farms." },
-      { property: "og:title", content: "AeroInspect Services" },
+      { property: "og:title", content: "Utilisight Services" },
       { property: "og:description", content: "Power line and solar farm drone inspections with thermal & RGB sensors." },
     ],
   }),
   component: ServicesPage,
 });
 
+const PROBLEMS = [
+  { icon: Clock, title: "Time inefficiency", text: "Manual ground inspections take weeks for what drones complete in days." },
+  { icon: DollarSign, title: "High operational costs", text: "Trucks, climbers and shutdowns inflate budgets without improving accuracy." },
+  { icon: ShieldAlert, title: "Personnel safety risks", text: "Working at height and near energized assets exposes crews to serious hazards." },
+  { icon: FileX2, title: "Incomplete data", text: "Visual-only inspections miss thermal anomalies and structural micro-defects." },
+] as const;
+
+const WHY = [
+  "Energy-focused expertise — we only do infrastructure",
+  "Certified pilots and thermography analysts (Level II)",
+  "Actionable reports prioritized by criticality",
+  "Strict safety and regulatory compliance",
+  "Fast 48–72h delivery, nationwide operations",
+] as const;
+
 const SERVICES = [
   {
     icon: Zap,
-    title: "Electrical distribution line inspection",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1200&q=70",
-    text: "Comprehensive RGB + thermal surveys of distribution and transmission networks. We deliver geolocated defect lists prioritized by criticality so your maintenance teams know exactly where to act.",
+    title: "Distribution Pole Inspection",
+    image: "/poles.jpg",
+    text: "Comprehensive RGB + thermal surveys of distribution infrastructure up to 44KV. We deliver geolocated defect lists prioritized by criticality so your maintenance teams know exactly where to act. Delivers georeferenced defect identification and condition assessments to support maintenance planning and asset reliability.",
     detects: [
       "Hotspots in clamps & connectors",
       "Damaged or contaminated insulators",
       "Corrosion on conductors and hardware",
       "Vegetation encroachment risks",
       "Pole tilt and structural anomalies",
-      "Bird nests and foreign objects",
+      "Pole condition assessment",
     ],
   },
   {
@@ -44,6 +72,48 @@ const SERVICES = [
       "Junction box anomalies",
     ],
   },
+  {
+    icon: Home,
+    title: "Roof inspection",
+    image: "/techo.webp",
+    text: "Detailed roof surveys for commercial and industrial sites. Capture high-resolution imagery to document condition, identify damage, and support maintenance planning.",
+    detects: [
+      "Membrane tears and punctures",
+      "Flashing and edge detail issues",
+      "Standing water and drainage problems",
+      "Storm and impact damage",
+      "Thermal insulation anomalies",
+      "Documentation for insurance and maintenance",
+    ],
+  },
+  {
+    icon: Thermometer,
+    title: "Thermographic surveys",
+    image: "/thermographicsurveys.jpeg",
+    text: "Radiometric thermal capture to identify hotspots and abnormal heating patterns across electrical and energy assets. Deliverables are geolocated and prioritized for action.",
+    detects: [
+      "Overheating connectors and breakers",
+      "Load imbalance indications",
+      "Thermal anomalies in modules and strings",
+      "Insulation and moisture signatures",
+      "Early-stage component failures",
+      "Repeatable baselines for trend analysis",
+    ],
+  },
+  {
+    icon: FileText,
+    title: "Technical reports",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=70",
+    text: "Engineering-friendly reporting that turns aerial data into clear maintenance priorities. We provide defect catalogs, summaries, and formats that integrate with your workflows.",
+    detects: [
+      "Defect catalogs with severity",
+      "Geolocated findings",
+      "Annotated imagery (RGB + thermal)",
+      "Executive summaries for stakeholders",
+      "PDF deliverables and GIS-friendly exports",
+      "Recommendations for next actions",
+    ],
+  },
 ];
 
 function ServicesPage() {
@@ -51,8 +121,8 @@ function ServicesPage() {
     <>
       <PageHeader
         eyebrow="Services"
-        title="Specialized aerial inspections for energy infrastructure"
-        description="Two core services. One mission: give engineering teams the data they need to act fast."
+        title="Specialized Aerial Inspections for Energy Infrastructure"
+        description="Two core services. One mission: provide engineering teams with the data they need to act fast and design with surgical precision."
       />
 
       <section className="py-16 md:py-24">
@@ -91,6 +161,74 @@ function ServicesPage() {
         </div>
       </section>
 
+      <section className="bg-surface py-20 md:py-28">
+        <div className="container-narrow">
+          <SectionHeader
+            eyebrow="The problem"
+            title="Traditional inspections are slow, costly, and dangerous"
+            description="Energy operators lose millions to undetected faults and inefficient maintenance routines. Utilisight helps teams act faster with better data."
+          />
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {PROBLEMS.map((p, i) => (
+              <motion.div
+                key={p.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="rounded-xl bg-card border border-border p-6 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all"
+              >
+                <div className="flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10 text-primary">
+                  <p.icon className="h-5 w-5" />
+                </div>
+                <h3 className="mt-4 font-semibold text-foreground">{p.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{p.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 md:py-28">
+        <div className="container-narrow grid gap-12 lg:grid-cols-2 lg:items-center">
+          <div>
+            <SectionHeader
+              align="left"
+              eyebrow="Why us"
+              title="The difference of working with specialists"
+              description="We're not a generic drone company. Energy infrastructure is all we do — and that focus translates into better data, better decisions."
+            />
+            <ul className="mt-8 space-y-3">
+              {WHY.map((w) => (
+                <li key={w} className="flex items-start gap-3">
+                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
+                  <span className="text-foreground">{w}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-elevated"
+          >
+            <img
+              src="/autel.jpg"
+              alt="Engineer reviewing drone inspection data"
+              loading="lazy"
+              className="h-full w-full object-cover"
+              style={{ objectPosition: "60% 30%" }}
+            />
+            <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-background/95 backdrop-blur p-5 shadow-card">
+              <div className="text-3xl font-bold text-primary">98.6%</div>
+              <div className="text-sm text-muted-foreground">defect detection accuracy across audited projects</div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       <SplitCTA />
     </>
   );
@@ -100,7 +238,14 @@ export function PageHeader({ eyebrow, title, description }: { eyebrow: string; t
   return (
     <section className="bg-secondary text-secondary-foreground py-20 md:py-24 border-b border-white/5">
       <div className="container-narrow">
-        <SectionHeader eyebrow={eyebrow} title={title} description={description} />
+        <SectionHeader
+          eyebrow={eyebrow}
+          title={title}
+          description={description}
+          eyebrowClassName="text-primary-foreground"
+          titleClassName="text-white"
+          descriptionClassName="text-slate-100/80"
+        />
       </div>
     </section>
   );

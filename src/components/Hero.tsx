@@ -38,16 +38,10 @@ export function Hero() {
             >
               Request a free inspection <ArrowRight className="h-4 w-4" />
             </Link>
-            <Link
-              to="/sectors"
-              className="inline-flex items-center gap-2 rounded-md border border-white/30 bg-white/5 backdrop-blur px-6 py-3.5 text-sm font-semibold text-white hover:bg-white/15 transition-colors"
-            >
-              View case studies
-            </Link>
           </div>
 
           <p className="mt-8 text-sm text-white/70">
-            Certified by aviation authority · 500+ km inspected · Nationwide operations
+            Certified pilots by Transport Canada · Ontariowide operations
           </p>
         </motion.div>
       </div>

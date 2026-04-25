@@ -5,9 +5,9 @@ import { SplitCTA } from "../components/SplitCTA";
 export const Route = createFileRoute("/process")({
   head: () => ({
     meta: [
-      { title: "Our Process — From scoping to report | AeroInspect" },
+      { title: "Our Process — From scoping to report | Utilisight" },
       { name: "description", content: "Our 5-step inspection workflow: scoping, planning, flight, processing, and report delivery in 48–72h." },
-      { property: "og:title", content: "AeroInspect Process" },
+      { property: "og:title", content: "Utilisight Process" },
       { property: "og:description", content: "How we deliver actionable inspection reports in 48–72h." },
     ],
   }),
@@ -27,7 +27,7 @@ function ProcessPage() {
     <>
       <PageHeader
         eyebrow="Process"
-        title="A clear, repeatable workflow"
+        title="A Clear, Repeatable Workflow"
         description="From first call to final report, every step is documented and predictable."
       />
       <section className="py-16 md:py-24">

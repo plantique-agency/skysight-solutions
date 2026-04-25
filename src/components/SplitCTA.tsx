@@ -32,15 +32,15 @@ export function SplitCTA() {
         }}
       >
         <div className="text-white max-w-md">
-          <h3 className="text-2xl md:text-3xl font-bold">Curious about results?</h3>
+          <h3 className="text-2xl md:text-3xl font-bold">Want to learn more?</h3>
           <p className="mt-3 text-white/80">
-            Browse our case studies across utilities and solar operators.
+            Get in touch and we’ll share sample deliverables and walk you through our inspection approach.
           </p>
           <Link
-            to="/sectors"
+            to="/contact"
             className="mt-6 inline-flex items-center gap-2 rounded-md border border-white/40 bg-white/0 px-5 py-3 text-sm font-semibold text-white hover:bg-white/10 transition-colors"
           >
-            View case studies <ArrowRight className="h-4 w-4" />
+            Contact us <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

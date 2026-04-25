@@ -33,7 +33,7 @@ export function ContactForm() {
         <Field label="Phone / WhatsApp" name="phone" type="tel" />
       </div>
       <div className="grid md:grid-cols-2 gap-4">
-        <Select label="Project type" name="type" options={["Power line inspection", "Solar farm inspection", "Both", "Other"]} />
+        <Select label="Project type" name="type" options={["Distribution Pole Inspection", "Solar farm inspection", "Both", "Other"]} />
         <Select label="Project size" name="size" options={["< 10 km / 5 MW", "10–50 km / 5–25 MW", "50+ km / 25+ MW", "Not sure yet"]} />
       </div>
       <div>

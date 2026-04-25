@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Plane, Mail, Phone, MapPin, Linkedin, Instagram, Youtube } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram } from "lucide-react";
 
 export function Footer() {
   return (
@@ -8,16 +8,13 @@ export function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <Link to="/" className="flex items-center gap-2">
-              <span className="flex h-9 w-9 items-center justify-center rounded-md bg-primary">
-                <Plane className="h-5 w-5 -rotate-45" />
-              </span>
-              <span className="font-bold text-lg">AeroInspect</span>
+              <img src="/logo.jpg.jpeg" alt="Utilisight logo" className="h-[60px] w-auto" />
             </Link>
             <p className="mt-4 text-sm text-white/70 max-w-xs">
               Safer, more efficient energy infrastructure — from above.
             </p>
             <div className="mt-5 flex gap-3">
-              {[Linkedin, Instagram, Youtube].map((Icon, i) => (
+              {[Linkedin, Instagram].map((Icon, i) => (
                 <a
                   key={i}
                   href="#"
@@ -33,10 +30,11 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">Services</h3>
             <ul className="mt-4 space-y-2 text-sm text-white/70">
-              <li><Link to="/services" className="hover:text-white">Power line inspection</Link></li>
+              <li><Link to="/services" className="hover:text-white">Distribution Pole Inspection</Link></li>
               <li><Link to="/services" className="hover:text-white">Solar farm inspection</Link></li>
-              <li><Link to="/technology" className="hover:text-white">Thermographic surveys</Link></li>
-              <li><Link to="/process" className="hover:text-white">Technical reports</Link></li>
+              <li><Link to="/services" className="hover:text-white">Roof inspection</Link></li>
+              <li><Link to="/services" className="hover:text-white">Thermographic surveys</Link></li>
+              <li><Link to="/services" className="hover:text-white">Technical reports</Link></li>
             </ul>
           </div>
 
@@ -53,15 +51,16 @@ export function Footer() {
           <div>
             <h3 className="text-sm font-semibold uppercase tracking-wider text-white">Contact</h3>
             <ul className="mt-4 space-y-3 text-sm text-white/70">
-              <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> Nationwide operations</li>
-              <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> <a href="tel:+15555550123" className="hover:text-white">+1 (555) 555-0123</a></li>
-              <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> <a href="mailto:hello@aeroinspect.co" className="hover:text-white">hello@aeroinspect.co</a></li>
+              <li className="flex items-start gap-2"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> North York, Ontario</li>
+              <li className="flex items-start gap-2"><Phone className="h-4 w-4 mt-0.5 text-primary" /> <a href="tel:+14379858229" className="hover:text-white">+1 437-985-8229</a></li>
+              <li className="flex items-start gap-2"><Mail className="h-4 w-4 mt-0.5 text-primary" /> <a href="mailto:ralvarez@utilisight.ca" className="hover:text-white">ralvarez@utilisight.ca</a></li>
+              <li><Link to="/contact" className="hover:text-white">Contact</Link></li>
             </ul>
           </div>
         </div>
 
         <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row gap-3 items-center justify-between text-xs text-white/50">
-          <p>© {new Date().getFullYear()} AeroInspect. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Utilisight. All rights reserved.</p>
           <div className="flex gap-5">
             <a href="#" className="hover:text-white">Privacy</a>
             <a href="#" className="hover:text-white">Terms</a>

@@ -32,9 +32,9 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "AeroInspect — Drone inspections for energy infrastructure" },
+      { title: "Utilisight — Drone inspections for energy infrastructure" },
       { name: "description", content: "Aerial drone inspections for power lines and solar farms. Thermographic & RGB sensors, fast geolocated reports in 48–72h." },
-      { name: "author", content: "AeroInspect" },
+      { name: "author", content: "Utilisight" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#0F4C81" },
