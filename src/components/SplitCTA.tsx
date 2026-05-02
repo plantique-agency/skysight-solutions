@@ -20,7 +20,7 @@ export function SplitCTA() {
             to="/contact"
             className="mt-6 inline-flex items-center gap-2 rounded-md bg-white px-5 py-3 text-sm font-semibold text-primary hover:bg-white/90 transition-colors"
           >
-            Request inspection <ArrowRight className="h-4 w-4" />
+            Get a Project Estimate <ArrowRight className="h-4 w-4" />
           </Link>
         </div>
       </div>

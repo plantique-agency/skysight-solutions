@@ -54,7 +54,7 @@ export function Header() {
             to="/contact"
             className="inline-flex items-center justify-center rounded-md bg-primary px-5 py-2.5 text-base font-semibold text-primary-foreground shadow-sm hover:bg-primary-hover transition-colors"
           >
-            Request Inspection
+            Get a Project Estimate
           </Link>
         </div>
 
@@ -88,7 +88,7 @@ export function Header() {
               onClick={() => setOpen(false)}
               className="mt-3 inline-flex items-center justify-center rounded-md bg-primary px-5 py-3.5 text-base font-semibold text-primary-foreground"
             >
-              Request Inspection
+              Get a Project Estimate
             </Link>
           </nav>
         </div>

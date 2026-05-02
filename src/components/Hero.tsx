@@ -28,7 +28,7 @@ export function Hero() {
             Intelligent inspections from above
           </h1>
           <p className="mt-5 text-lg md:text-xl text-white/85 max-w-2xl">
-            We reduce inspection times by up to 80% using drone technology and detect failures before they occur.
+            Integrity assurance and advanced data capture via Advanced RPAS operations, led by energy specialists.
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -36,7 +36,7 @@ export function Hero() {
               to="/contact"
               className="inline-flex items-center gap-2 rounded-md bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground shadow-lg hover:bg-primary-hover transition-colors"
             >
-              Request a free inspection <ArrowRight className="h-4 w-4" />
+              Get a Project Estimate <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
 

@@ -35,6 +35,25 @@ const PROBLEMS = [
   { icon: FileX2, title: "Incomplete data", text: "Visual-only inspections miss thermal anomalies and structural micro-defects." },
 ] as const;
 
+const UTILISIGHT_BLOCKS = [
+  {
+    title: "Energy infrastructure is our primary focus",
+    text: "Energy is at the core of what we do — distribution lines, solar arrays, rooftops with energy assets. That focus shapes how we fly, what we look for, and how we report. If you work in energy, you are talking to someone who understands your assets.",
+  },
+  {
+    title: "Radiometric thermal imaging on every mission",
+    text: "Not all thermal data is equal. We capture fully radiometric thermal imagery — every pixel contains real temperature data, not just a color picture. That is the difference between spotting a problem and being able to measure and document it precisely.",
+  },
+  {
+    title: "You work directly with the operator",
+    text: "No account managers, no handoffs. The person you contact is the same person flying the mission and building your report. Better context, faster answers, and no details lost in translation.",
+  },
+  {
+    title: "Reports built for action, not archives",
+    text: "Every finding is geolocated and ranked by criticality. Your team gets a clear picture of what needs attention first — no raw data to interpret, no guesswork.",
+  },
+] as const;
+
 const WHY = [
   "Energy-focused expertise — we only do infrastructure",
   "Certified pilots and thermography analysts (Level II)",
@@ -46,72 +65,40 @@ const WHY = [
 const SERVICES = [
   {
     icon: Zap,
-    title: "Distribution Pole Inspection",
+    title: "Condition-Based Distribution Asset Assessment",
     image: "/poles.jpg",
-    text: "Comprehensive RGB + thermal surveys of distribution infrastructure up to 44KV. We deliver geolocated defect lists prioritized by criticality so your maintenance teams know exactly where to act. Delivers georeferenced defect identification and condition assessments to support maintenance planning and asset reliability.",
+    text: "Comprehensive aerial thermography (radiometric data) and high-resolution RGB imagery of distribution infrastructure up to 44kV. We deliver geolocated defect reports, ranked by criticality, so your maintenance team knows exactly where to focus.",
     detects: [
-      "Hotspots in clamps & connectors",
-      "Damaged or contaminated insulators",
-      "Corrosion on conductors and hardware",
-      "Vegetation encroachment risks",
-      "Pole tilt and structural anomalies",
-      "Pole condition assessment",
+      "Hotspots and thermal anomalies in connectors",
+      "Degradation of dielectric components (insulators)",
+      "Structural health and pole verticality anomalies",
+      "Vegetation encroachment risk identification",
     ],
   },
   {
     icon: SunMedium,
-    title: "Solar farm inspection",
+    title: "Asset Integrity Management: Solar PV (Multi-MW Arrays)",
     image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1200&q=70",
-    text: "Aerial thermography across multi-MW arrays in a single mission. Identify failing modules, string-level issues and tracker misalignment before they hurt production.",
+    text: "Engineering-grade aerial thermography performed in strict compliance with the IEC 62446-3 standard. Rapidly identify cell-level hotspots, complete string failures, or tracking system inefficiencies that impact Yield and OPEX. From 1 MW community solar to utility-scale arrays — single mission, complete coverage.",
     detects: [
-      "Cell-level hotspots and PID",
-      "Bypass diode failures",
-      "Disconnected strings",
-      "Soiling and shading patterns",
-      "Tracker misalignment",
-      "Junction box anomalies",
+      "Cell-level hotspots",
+      "Complete string failures",
+      "Tracking system inefficiencies",
     ],
   },
   {
     icon: Home,
-    title: "Roof inspection",
+    title: "Solar Array Inspection / Roofing Asset Inspection",
     image: "/techo.webp",
-    text: "Detailed roof surveys for commercial and industrial sites. Capture high-resolution imagery to document condition, identify damage, and support maintenance planning.",
+    text: "A damaged roof puts everything above and below it at risk — solar panels, electrical penetrations, and the home or facility underneath. We inspect residential and commercial rooftops with high-resolution RGB and thermal imaging, giving owners and operators a clear picture of what needs attention.",
     detects: [
       "Membrane tears and punctures",
-      "Flashing and edge detail issues",
-      "Standing water and drainage problems",
-      "Storm and impact damage",
-      "Thermal insulation anomalies",
+      "Thermal anomalies around solar mounting points",
+      "Standing water and drainage issues",
+      "Storm, hail and impact damage",
+      "Compromised weatherproofing at cable entries",
+      "Panel-level heat signatures on rooftop solar",
       "Documentation for insurance and maintenance",
-    ],
-  },
-  {
-    icon: Thermometer,
-    title: "Thermographic surveys",
-    image: "/thermographicsurveys.jpeg",
-    text: "Radiometric thermal capture to identify hotspots and abnormal heating patterns across electrical and energy assets. Deliverables are geolocated and prioritized for action.",
-    detects: [
-      "Overheating connectors and breakers",
-      "Load imbalance indications",
-      "Thermal anomalies in modules and strings",
-      "Insulation and moisture signatures",
-      "Early-stage component failures",
-      "Repeatable baselines for trend analysis",
-    ],
-  },
-  {
-    icon: FileText,
-    title: "Technical reports",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1200&q=70",
-    text: "Engineering-friendly reporting that turns aerial data into clear maintenance priorities. We provide defect catalogs, summaries, and formats that integrate with your workflows.",
-    detects: [
-      "Defect catalogs with severity",
-      "Geolocated findings",
-      "Annotated imagery (RGB + thermal)",
-      "Executive summaries for stakeholders",
-      "PDF deliverables and GIS-friendly exports",
-      "Recommendations for next actions",
     ],
   },
 ];
@@ -122,7 +109,7 @@ function ServicesPage() {
       <PageHeader
         eyebrow="Services"
         title="Specialized Aerial Inspections for Energy Infrastructure"
-        description="Two core services. One mission: provide engineering teams with the data they need to act fast and design with surgical precision."
+        description="Three specialized services. One mission: give engineering teams the data they need to act fast and maintain with precision"
       />
 
       <section className="py-16 md:py-24">
@@ -153,11 +140,35 @@ function ServicesPage() {
                   to="/contact"
                   className="mt-7 inline-flex items-center gap-2 rounded-md bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary-hover transition-colors"
                 >
-                  Request a quote <ArrowRight className="h-4 w-4" />
+                  Get a Project Estimate <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
             </div>
           ))}
+        </div>
+      </section>
+
+      <section className="bg-surface py-20 md:py-28">
+        <div className="container-narrow">
+          <SectionHeader
+            title="WHY UTILISIGHT"
+            description="Specialized focus. Reliable data. Clear results."
+          />
+          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+            {UTILISIGHT_BLOCKS.map((b, i) => (
+              <motion.div
+                key={b.title}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4, delay: i * 0.08 }}
+                className="rounded-xl bg-card border border-border p-6 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all"
+              >
+                <h3 className="font-semibold text-foreground">{b.title}</h3>
+                <p className="mt-1.5 text-sm text-muted-foreground">{b.text}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
