@@ -33,14 +33,6 @@ const PROBLEMS = [
   { icon: FileX2, title: "Incomplete data", text: "Visual-only inspections miss thermal anomalies and structural micro-defects." },
 ] as const;
 
-const WHY = [
-  "Energy-focused expertise — we only do infrastructure",
-  "Certified pilots and thermography analysts (Level II)",
-  "Actionable reports prioritized by criticality",
-  "Strict safety and regulatory compliance",
-  "Fast 48–72h delivery, nationwide operations",
-] as const;
-
 const SERVICES = [
   {
     icon: Zap,
@@ -152,46 +144,6 @@ function ServicesPage() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      <section className="py-20 md:py-28">
-        <div className="container-narrow grid gap-12 lg:grid-cols-2 lg:items-center">
-          <div>
-            <SectionHeader
-              align="left"
-              eyebrow="Why us"
-              title="The difference of working with specialists"
-              description="We're not a generic drone company. Energy infrastructure is all we do — and that focus translates into better data, better decisions."
-            />
-            <ul className="mt-8 space-y-3">
-              {WHY.map((w) => (
-                <li key={w} className="flex items-start gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary mt-0.5 shrink-0" />
-                  <span className="text-foreground">{w}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.96 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="relative aspect-[4/5] rounded-2xl overflow-hidden shadow-elevated"
-          >
-            <img
-              src="/autel.jpg"
-              alt="Engineer reviewing drone inspection data"
-              loading="lazy"
-              className="h-full w-full object-cover"
-              style={{ objectPosition: "60% 30%" }}
-            />
-            <div className="absolute bottom-5 left-5 right-5 rounded-xl bg-background/95 backdrop-blur p-5 shadow-card">
-              <div className="text-3xl font-bold text-primary">98.6%</div>
-              <div className="text-sm text-muted-foreground">defect detection accuracy across audited projects</div>
-            </div>
-          </motion.div>
         </div>
       </section>
 
