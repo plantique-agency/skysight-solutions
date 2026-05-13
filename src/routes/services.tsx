@@ -4,8 +4,6 @@ import {
   Zap,
   SunMedium,
   Home,
-  Thermometer,
-  FileText,
   CheckCircle2,
   ArrowRight,
   Clock,
@@ -33,25 +31,6 @@ const PROBLEMS = [
   { icon: DollarSign, title: "High operational costs", text: "Trucks, climbers and shutdowns inflate budgets without improving accuracy." },
   { icon: ShieldAlert, title: "Personnel safety risks", text: "Working at height and near energized assets exposes crews to serious hazards." },
   { icon: FileX2, title: "Incomplete data", text: "Visual-only inspections miss thermal anomalies and structural micro-defects." },
-] as const;
-
-const UTILISIGHT_BLOCKS = [
-  {
-    title: "Energy infrastructure is our primary focus",
-    text: "Energy is at the core of what we do — distribution lines, solar arrays, rooftops with energy assets. That focus shapes how we fly, what we look for, and how we report. If you work in energy, you are talking to someone who understands your assets.",
-  },
-  {
-    title: "Radiometric thermal imaging on every mission",
-    text: "Not all thermal data is equal. We capture fully radiometric thermal imagery — every pixel contains real temperature data, not just a color picture. That is the difference between spotting a problem and being able to measure and document it precisely.",
-  },
-  {
-    title: "You work directly with the operator",
-    text: "No account managers, no handoffs. The person you contact is the same person flying the mission and building your report. Better context, faster answers, and no details lost in translation.",
-  },
-  {
-    title: "Reports built for action, not archives",
-    text: "Every finding is geolocated and ranked by criticality. Your team gets a clear picture of what needs attention first — no raw data to interpret, no guesswork.",
-  },
 ] as const;
 
 const WHY = [
@@ -145,30 +124,6 @@ function ServicesPage() {
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      <section className="bg-surface py-20 md:py-28">
-        <div className="container-narrow">
-          <SectionHeader
-            title="WHY UTILISIGHT"
-            description="Specialized focus. Reliable data. Clear results."
-          />
-          <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {UTILISIGHT_BLOCKS.map((b, i) => (
-              <motion.div
-                key={b.title}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: i * 0.08 }}
-                className="rounded-xl bg-card border border-border p-6 shadow-card hover:shadow-elevated hover:-translate-y-1 transition-all"
-              >
-                <h3 className="font-semibold text-foreground">{b.title}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{b.text}</p>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
